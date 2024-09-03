@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Movie Series Showcase</title>
+		<link rel="stylesheet" href="style.css" />
+	</head>
+	<body>
+		<div class="blur-background"></div>
+		<div class="content">
+			<header>
+				<div class="logo">KinFlix</div>
+				<nav>
+					<a href="index.html">Home</a>
+					<a href="series.html" class="active">Series</a>
+					<a href="movie.html">Movies</a>
+				</nav>
+			</header>
+			<div class="container">
+				<h1>Series</h1>
+				<div id="series-container">
+					<!-- Movie series will be injected here -->
+				</div>
+			</div>
+			<script>
+				// script.js
+				document.addEventListener("DOMContentLoaded", () => {
+					const seriesData = [
+						{
+							id: "series1",
+							title: "Harry Potter",
+							movies: [
+								{
+									id: "1",
+									title: "Harry Potter and the Sorcerer's Stone",
+									releaseDate: "2001",
+									posterUrl: "img/hp1.jpg",
+								},
+								{
+									id: "2",
+									title: "Harry Potter and the Chamber of Secrets",
+									releaseDate: "2002",
+									posterUrl: "img/hp2.jpg",
+								},
+							],
+						},
+						{
+							id: "series2",
+							title: "The Lord of the Rings",
+							movies: [
+								{
+									id: "1",
+									title: "The Fellowship of the Ring",
+									releaseDate: "2001",
+									posterUrl: "img/lr.jpg",
+								},
+								{
+									id: "2",
+									title: "The Two Towers",
+									releaseDate: "2002",
+									posterUrl: "img/lr2.jpg",
+								},
+							],
+						},
+					];
+
+					const seriesContainer = document.getElementById("series-container");
+
+					seriesData.forEach((series) => {
+						// Create series div
+						const seriesDiv = document.createElement("div");
+						seriesDiv.classList.add("series");
+
+						// Add series title
+						const seriesTitle = document.createElement("h2");
+						seriesTitle.classList.add("series-title");
+						seriesTitle.textContent = series.title;
+						seriesDiv.appendChild(seriesTitle);
+
+						// Create movies container
+						const moviesDiv = document.createElement("div");
+						moviesDiv.classList.add("movies");
+
+						series.movies.forEach((movie) => {
+							// Create movie div
+							const movieDiv = document.createElement("div");
+							movieDiv.classList.add("movie");
+
+							// Add movie poster
+							const moviePoster = document.createElement("img");
+							moviePoster.src = movie.posterUrl;
+							moviePoster.alt = movie.title;
+							movieDiv.appendChild(moviePoster);
+
+							// Add movie title
+							const movieTitle = document.createElement("h3");
+							movieTitle.classList.add("movie-title");
+							movieTitle.textContent = movie.title;
+							movieDiv.appendChild(movieTitle);
+
+							// Add movie release date
+							const movieReleaseDate = document.createElement("p");
+							movieReleaseDate.classList.add("movie-release-date");
+							movieReleaseDate.textContent = movie.releaseDate;
+							movieDiv.appendChild(movieReleaseDate);
+
+							// Append movie to movies container
+							moviesDiv.appendChild(movieDiv);
+						});
+
+						// Append movies container to series div
+						seriesDiv.appendChild(moviesDiv);
+
+						// Append series div to the main container
+						seriesContainer.appendChild(seriesDiv);
+					});
+				});
+			</script>
+            <footer>
+					<div>
+						<div class="logo">KinFlix</div>
+						<nav>
+							<a href="#">Movies</a>
+							<a href="#">Series</a>
+							<a href="#">Originals</a>
+						</nav>
+					</div>
+					<div>
+						<h3>Categories</h3>
+						<p>MoviesTV</p>
+						<p>Shows</p>
+						<p>Comedy</p>
+						<p>Sci-Fi</p>
+						<p>Cartoons</p>
+						<p>Horror</p>
+					</div>
+					<div>
+						<h3>Get in Touch</h3>
+						<nav>
+							<a href="#">Contact Us</a>
+							<a href="#">Customer</a>
+							<a href="#">SupportFAQ</a>
+						</nav>
+					</div>
+				</footer>
+		</div>
+	</body>
+</html>

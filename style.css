@@ -1,0 +1,386 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	position: relative;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+.blur-background {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-image: url("img/bg.jpg");
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	filter: blur(2px);
+	z-index: -1;
+}
+
+.content {
+	position: relative;
+	z-index: 1;
+	color: black;
+}
+
+header {
+	display: flex;
+	width: 100%;
+	justify-content: space-between;
+	align-items: center;
+	padding: 10px 20px;
+}
+
+.logo {
+	color: rgb(16, 13, 31);
+	font-size: 2rem;
+}
+
+nav {
+	background-color: rgb(16, 13, 31);
+	color: white;
+	border-radius: 18px;
+	padding: 0.5rem 0.75rem;
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+}
+
+nav a {
+	text-decoration: none;
+	color: lightgray;
+}
+
+nav a.active {
+	color: white;
+}
+.first {
+	display: grid;
+	grid-template-columns: 1fr 2fr;
+	align-items: center;
+	margin: 1rem;
+	gap: 10px;
+}
+.first .col-1 {
+	background-image: url("img/action1.jpg");
+	border-radius: 12px;
+	height: 50vh;
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: cover;
+	color: white;
+	display: flex;
+	align-items: flex-end;
+	font-size: 4rem;
+	padding: 1rem;
+	box-shadow: 0 0 15px rgba(8, 9, 10, 0.5);
+	transition: transform 0.5s ease;
+}
+.first .col-1:hover,
+.first .col-2:hover {
+	transform: scale(1.02);
+}
+.first .col-2 {
+	background-image: url("img/action.jpg");
+	border-radius: 12px;
+	height: 50vh;
+	background-repeat: no-repeat;
+	background-position: top center;
+	background-size: cover;
+	color: white;
+	display: flex;
+	align-items: flex-end;
+	font-size: 4rem;
+	padding: 1rem;
+	box-shadow: 0 0 15px rgba(8, 9, 10, 0.5);
+	transition: transform 0.5s ease;
+}
+.glass-effect {
+	background: rgba(255, 255, 255, 0.1);
+	border-radius: 10px;
+	backdrop-filter: blur(10px);
+	-webkit-backdrop-filter: blur(10px);
+	padding: 20px;
+	transition: 400ms ease-in-out;
+	border: 1px solid rgba(255, 255, 255, 0.2);
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.mini-box {
+	display: grid;
+	grid-template-columns: repeat(7, 1fr);
+	align-items: center;
+	gap: 1rem;
+	justify-content: center;
+	padding: 1rem;
+	text-align: center;
+	color: rgb(16, 13, 31);
+}
+.mini-box .item:hover {
+	transform: translateY(-5px);
+	cursor: pointer;
+	transition: 400ms ease-in-out;
+}
+.trending {
+	padding: 1rem;
+}
+.trending .movies {
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	gap: 1rem;
+}
+.trending .movies .movie {
+	width: 20%;
+	margin-top: 20px;
+}
+.trending .movies .movie img {
+	width: 100%;
+	border-radius: 12px;
+	transition: transform 0.3s ease;
+}
+.image-container {
+	overflow: hidden;
+	border-radius: 12px;
+}
+
+.trending .movies .movie:hover img {
+	transform: scale(1.1);
+}
+.trending .movies .movie .title {
+	margin-top: 0.5rem;
+	font-size: 18px;
+	font-weight: 700;
+}
+.trending .movies .movie .down {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+	font-size: 12px;
+	font-weight: 200;
+	margin-top: 0.5rem;
+}
+.trending .movies .movie .down .rate {
+	color: gold;
+}
+.trending .movies .movie .down .rate span {
+	color: rgb(16, 13, 31);
+}
+footer {
+	background-color: rgb(16, 13, 31);
+	color: white;
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-evenly;
+	padding: 1rem 0;
+	border-radius: 10px 10px 0 0;
+	margin-top: 2rem;
+}
+footer .logo {
+	color: white;
+}
+footer nav {
+	flex-direction: column;
+	align-items: flex-start;
+}
+footer nav a {
+	color: white;
+}
+footer p {
+	margin-top: 0.5rem;
+}
+@media (max-width: 640px) {
+	footer {
+		flex-direction: column;
+		padding: 1rem;
+		gap: 1rem;
+		text-align: center;
+		justify-content: center;
+		align-items: center;
+	}
+	.logo {
+		font-size: 1rem;
+	}
+	nav {
+		padding: 0.5rem 0.5rem;
+	}
+	.first {
+		grid-template-columns: 1fr;
+	}
+	.first .col-1,
+	.first .col-2 {
+		height: 25vh;
+		font-size: 1rem;
+	}
+	.mini-box {
+		grid-template-columns: repeat(3, 1fr);
+		gap: 0.5rem;
+	}
+	.glass-effect {
+		padding: 10px;
+	}
+	.trending .movies .movie {
+		width: 45%;
+		margin-top: 20px;
+	}
+}
+
+.movie-container {
+	width: 80%;
+	margin: 20px auto 0;
+	height: 90vh;
+}
+
+#movie-list {
+	list-style: none;
+	padding: 0;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	align-items: center;
+	text-align: center;
+}
+
+#movie-list li {
+	flex: 1 1 calc(33.333% - 20px); /* Three items per row */
+	box-sizing: border-box;
+	padding: 10px;
+	margin: 5px;
+	cursor: pointer;
+	transition: transform 0.3s;
+}
+
+#movie-list li:hover {
+	transform: scale(1.05);
+}
+
+#movie-list img {
+	width: 100%;
+	height: 70vh;
+	border-radius: 8px;
+}
+#movie-list label {
+	text-align: center;
+	font-weight: 600;
+}
+
+.modal {
+	display: none;
+	position: fixed;
+	z-index: 1;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+	background-color: rgba(0, 0, 0, 0.8);
+}
+
+.modal-content {
+	background-color: rgb(16, 13, 31);
+	margin: 5% auto;
+	padding: 20px;
+	width: 90%;
+	max-width: 600px;
+	position: relative;
+	color: white;
+	border-radius: 12px;
+}
+
+.close-btn {
+	color: #aaa;
+	float: right;
+	font-size: 28px;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+	color: white;
+}
+
+#movie-video {
+	width: 100%;
+	height: auto;
+	margin-top: 10px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+	#movie-list li {
+		flex: 1 1 calc(50% - 20px); /* Two items per row */
+	}
+	.modal-content {
+	background-color: rgb(16, 13, 31);
+	margin: 75% auto;
+}
+#movie-list li{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+}
+
+#movie-list img {
+	width: 50%;
+	height: 50%;
+	border-radius: 8px;
+}
+}
+
+@media (max-width: 480px) {
+	#movie-list li {
+		flex: 1 1 100%; /* One item per row */
+	}
+}
+
+.container {
+    padding: 20px;
+}
+
+
+.series {
+    margin-bottom: 20px;
+	border-top: 1px solid #333;
+	padding-top: 1rem;
+}
+
+.series-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.movies {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.movie {
+    width: 200px;
+    text-align: center;
+}
+
+.movie img {
+    width: 100%;
+    height: 50vh;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.movie-title {
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+.movie-release-date {
+    font-size: 14px;
+    color: #777;
+}
